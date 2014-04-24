@@ -1,28 +1,30 @@
-
-/**
- * Write a description of class FindDates here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
-public class FindDates
-{
-    // instance variables - replace the example below with your own
-
-    public FindDates()
-    {
-        // initialise instance variables
-    }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public static void Main()
-    {
-        // put your code here
-        
-    }
+public class main {
+	public static void main(String []args)
+	{
+		String input = "As of May 2013, Apple maintains 408 retail stores";
+		String []convert=input.split(",");
+		input = convert.toString();
+		System.out.println(input);
+		String[] splited = input.split(" ");
+		
+		for(int i=0;i<splited.length;i++)
+		{
+			try
+			{
+				
+			int z=Integer.parseInt(splited[i]);
+			System.out.println(z);
+			
+			}catch(NumberFormatException nfe)
+			{
+			
+			}
+			
+			
+		}
+		
+		
+	}
 }
+
+
