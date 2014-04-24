@@ -1,5 +1,4 @@
-public class main {
-	public static void main(String []args)
+public static void main(String []args)
     {
         String input = "As of May 2013, Apple maintains 408 retail stores";
         
@@ -13,7 +12,8 @@ public class main {
             { 
                 int a = Integer.parseInt(words[i]);
                 for(int j = 0; j < months.length; j++){
-                    if (words[i-1] == months[j]){
+                    //System.out.println(words[i-1] + "   ,    " + months[j]);
+                    if (words[i-1].equals(months[j])){
                         System.out.println(a);
                     }
                 }
@@ -26,6 +26,3 @@ public class main {
         }
         System.out.println(input);
     }
-}
-
-
