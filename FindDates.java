@@ -3,6 +3,7 @@ public class main {
 	{
 		String input = "As of May 2013, Apple maintains 408 retail stores";
 		String []convert=input.split(",");
+		input="";
 		for(int i =0;i<convert.length;i++)
 		{
 			input+=convert[i]+" ";
