@@ -1,8 +1,8 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class main {
-	public static void main(String[] args)
+public class Main1 {
+	public static void main()
     {
 		// April 1, 1976
 		// April-1-,-1976
@@ -99,12 +99,11 @@ public class main {
         }
         
         //clean meanings
-        	if(meanings.get(0).charAt(0) == ' ' && meanings.get(0).charAt(1) == ','){
-        	   meanings.get(0).replace(", ", " ");
-        	}
-        	
+        for(int i=0;i<timeline.size();i++){
+        	if(meanings.get(i).charAt(0) == ',' || meanings.get(i).charAt(1) == ' ')
+        	    meanings.set(i, meanings.get(i).substring(2));
+        }
         
-      
       System.out.println("Output:");
       System.out.println(timeline.size() + " events happend");
         for(int i=0;i<timeline.size();i++)
@@ -113,6 +112,7 @@ public class main {
         	System.out.println(" - "+meanings.get(i));
         }
     }
+
     public static boolean isNum(String in){
         if(in.contains("1"))return true;
         if(in.contains("2"))return true;
@@ -127,3 +127,4 @@ public class main {
             return false;
     }
 }
+
