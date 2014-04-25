@@ -8,7 +8,7 @@ public class main {
 		// April-1-,-1976
 		List<String> timeline  = new LinkedList<>();
 		List<String> meanings = new LinkedList<>();
-        String input = "As of May 2013, Apple maintains 408 retail stores. On April 1, 1976 Apple Computers was founded by Steve Jobs and Steve Wozniak.";
+        String input = "As of May 2013, Apple maintains 408 retail stores. On September 30, 2013, Apple surpassed Coca-Cola to become the world's most valuable brand in the Omnicom Group's 'Best Global Brands' report.";
         
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
