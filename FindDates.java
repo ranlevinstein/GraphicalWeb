@@ -1,8 +1,8 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Main1 {
-	public static void main()
+public class main {
+	public static void main(String[] args)
     {
 		// April 1, 1976
 		// April-1-,-1976
@@ -127,4 +127,3 @@ public class Main1 {
             return false;
     }
 }
-
