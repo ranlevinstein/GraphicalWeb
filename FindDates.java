@@ -1,15 +1,14 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class main {
-	public static void main(String []args)
+public class Main1 {
+	public static void main()
     {
 		// April 1, 1976
 		// April-1-,-1976
 		List<String> timeline  = new LinkedList<>();
 		List<String> meanings = new LinkedList<>();
         String input = "As of May 2013, Apple maintains 408 retail stores. On September 30, 2013, Apple surpassed Coca-Cola to become the world's most valuable brand in the Omnicom Group's 'Best Global Brands' report.";
-        
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
         System.out.println("Input (After minor format changes): \n" +input);
@@ -20,8 +19,8 @@ public class main {
         {
             try
             { 
-                int a;
-                if(isNum(words[i]){a = Integer.parseInt(words[i].replaceAll("[a-zA-Z]",""));}
+                int a = 0;
+                if(isNum(words[i])){a = Integer.parseInt(words[i].replaceAll("[a-zA-Z]",""));}
                 for(int j = 0; j < months.length; j++){
                     //System.out.println(words[i-1] + "   ,    " + months[j]);
                 	
@@ -99,16 +98,22 @@ public class main {
             }
         }
         
+        //clean meanings
+        	if(meanings.get(0).charAt(0) == ' ' && meanings.get(0).charAt(1) == ','){
+        	   meanings.get(0).replace(", ", " ");
+        	}
+        	
         
-        System.out.println("Output:");
+      
+      System.out.println("Output:");
+      System.out.println(timeline.size() + " events happend");
         for(int i=0;i<timeline.size();i++)
         {
-        	System.out.print("Date: "+timeline.get(i));
-        	System.out.println(" -What happened: "+meanings.get(i));
+        	System.out.print(timeline.get(i));
+        	System.out.println(" - "+meanings.get(i));
         }
-      
     }
-    public boolean isNum(String in){
+    public static boolean isNum(String in){
         if(in.contains("1"))return true;
         if(in.contains("2"))return true;
         if(in.contains("3"))return true;
