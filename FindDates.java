@@ -4,10 +4,11 @@ import java.util.List;
 public class main {
 	public static void main(String []args)
     {
-		
+		// April 1, 1976
+		// April-1-,-1976
 		List<String> timeline  = new LinkedList<>();
 		List<String> meanings = new LinkedList<>();
-        String input = "As of May 2013, Apple maintains 408 retail stores. Bla Bla Bla October 2015 has fall.";
+        String input = "As of May 2013, Apple maintains 408 retail stores. On April 1, 1976 Apple Computer was founded by Steve Jobs and Steve Wozniak.";
         
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
@@ -22,6 +23,22 @@ public class main {
                 int a = Integer.parseInt(words[i]);
                 for(int j = 0; j < months.length; j++){
                     //System.out.println(words[i-1] + "   ,    " + months[j]);
+                	
+                	if(words[i-1].equals(","))
+                	{
+                		if(words[i-3].equals(months[j]))
+            			{
+                			for(int d=1;d<32;d++)
+                    		{
+                    			if(words[i-2].equals(d))
+                    			{
+                    				System.out.println("Eureka! "+ d);
+                    			}
+                    		}
+            			}
+                		
+                	}
+                
                     if (words[i-1].equals(months[j])){
                     	String meaningWords="";
                     	timeline.add(months[j]+","+a);
