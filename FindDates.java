@@ -12,7 +12,7 @@ public class main {
         
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
-        System.out.println("Input: \n" +input);
+        System.out.println("Input (After minor format changes): \n" +input);
         String[] words = input.split(" ");
         String[] months = {"January","Febuary","March","April","May","June","July","August","September","October","November","December"};
         
@@ -26,16 +26,32 @@ public class main {
                 	
                 	if(words[i-1].equals(","))
                 	{
+                		
+                		try{
+                			
                 		if(words[i-3].equals(months[j]))
             			{
+                			System.out.println(words[i-3]);
                 			for(int d=1;d<32;d++)
                     		{
-                    			if(words[i-2].equals(d))
+                				//System.out.println(d+words[i-2]);
+                    			if(words[i-2].equals(""+d))
                     			{
                     				System.out.println("Eureka! "+ d);
+                    				
+                    				break;
                     			}
                     		}
             			}
+                		else
+                		{
+                			
+                		}
+                		}
+                		catch (NullPointerException npe)
+                		{
+                			System.out.println("NULL POINTER");
+                		}
                 		
                 	}
                 
