@@ -16,7 +16,7 @@ public class Main1 {
         String[] words = input.split(" ");
         String[] months = {"January","Febuary","March","April","May","June","July","August","September","October","November","December"};
         //System.out.println(input);
-        regexChecker("\\s[A-Za-z]{2,4}\\s",input);
+        regexChecker("\\s[0-9]{4}\\s",input);
       
         
       System.out.println("Output:");
