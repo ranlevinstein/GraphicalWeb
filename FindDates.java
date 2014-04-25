@@ -8,7 +8,7 @@ public class main {
 		// April-1-,-1976
 		List<String> timeline  = new LinkedList<>();
 		List<String> meanings = new LinkedList<>();
-        String input = "As of May 2013, Apple maintains 408 retail stores. On April 1, 1976 Apple Computer was founded by Steve Jobs and Steve Wozniak.";
+        String input = "As of May 2013, Apple maintains 408 retail stores. On April 1, 1976 Apple Computers was founded by Steve Jobs and Steve Wozniak.";
         
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
@@ -24,6 +24,7 @@ public class main {
                 for(int j = 0; j < months.length; j++){
                     //System.out.println(words[i-1] + "   ,    " + months[j]);
                 	
+                	//Date format #1
                 	if(words[i-1].equals(","))
                 	{
                 		
@@ -31,22 +32,31 @@ public class main {
                 			
                 		if(words[i-3].equals(months[j]))
             			{
-                			System.out.println(words[i-3]);
+                			//System.out.println(words[i-3]);
                 			for(int d=1;d<32;d++)
                     		{
                 				//System.out.println(d+words[i-2]);
                     			if(words[i-2].equals(""+d))
                     			{
-                    				System.out.println("Eureka! "+ d);
+                    				//System.out.println("Eureka! "+ d);
                     				
+                    				String meaningWords="";
+                                	timeline.add(months[j]+","+a);
+                                	for(int m=i+1;m<words.length;m++)
+                                	{
+                                		if(words[m].equals("."))
+                                			break;
+                                		
+                                		else
+                                			meaningWords+=words[m]+" ";
+                                	}
+                                	//System.out.println(meaningWords);
+                                	meanings.add(meaningWords);
                     				break;
                     			}
                     		}
             			}
-                		else
-                		{
-                			
-                		}
+                		
                 		}
                 		catch (NullPointerException npe)
                 		{
@@ -54,8 +64,16 @@ public class main {
                 		}
                 		
                 	}
-                
+                	
+                	
+                	//Date format #2
                     if (words[i-1].equals(months[j])){
+                    	//if(words[i])
+                    	try{
+                    	 int b = Integer.parseInt(words[i+2]);
+                    	}catch(NumberFormatException nfe)
+                    	{
+                    	//System.out.println();
                     	String meaningWords="";
                     	timeline.add(months[j]+","+a);
                     	for(int m=i+1;m<words.length;m++)
@@ -68,6 +86,7 @@ public class main {
                     	}
                     	//System.out.println(meaningWords);
                     	meanings.add(meaningWords);
+                    	}
                        // System.out.println(months[j]+","+a);
                     }
                 }
@@ -78,6 +97,8 @@ public class main {
    
             }
         }
+        
+        
         System.out.println("Output:");
         for(int i=0;i<timeline.size();i++)
         {
