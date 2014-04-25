@@ -20,7 +20,8 @@ public class main {
         {
             try
             { 
-                int a = Integer.parseInt(words[i]);
+                int a;
+                if(isNum(words[i]){a = Integer.parseInt(words[i].replaceAll("[a-zA-Z]",""));}
                 for(int j = 0; j < months.length; j++){
                     //System.out.println(words[i-1] + "   ,    " + months[j]);
                 	
@@ -106,6 +107,19 @@ public class main {
         	System.out.println(" -What happened: "+meanings.get(i));
         }
       
+    }
+    public boolean isNum(String in){
+        if(in.contains("1"))return true;
+        if(in.contains("2"))return true;
+        if(in.contains("3"))return true;
+        if(in.contains("4"))return true;
+        if(in.contains("5"))return true;
+        if(in.contains("6"))return true;
+        if(in.contains("7"))return true;
+        if(in.contains("8"))return true;
+        if(in.contains("9"))return true;
+        if(in.contains("0"))return true;
+            return false;
     }
 }
 
