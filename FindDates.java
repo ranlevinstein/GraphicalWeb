@@ -11,7 +11,7 @@ public class main {
         
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
-       // System.out.println("Input: " +input);
+        System.out.println("Input: \n" +input);
         String[] words = input.split(" ");
         String[] months = {"January","Febuary","March","April","May","June","July","August","September","October","November","December"};
         
@@ -33,8 +33,8 @@ public class main {
                     		else
                     			meaningWords+=words[m]+" ";
                     	}
-                    	System.out.println(meaningWords);
-                    	//meanings.add(words)
+                    	//System.out.println(meaningWords);
+                    	meanings.add(meaningWords);
                        // System.out.println(months[j]+","+a);
                     }
                 }
@@ -49,7 +49,7 @@ public class main {
         for(int i=0;i<timeline.size();i++)
         {
         	System.out.print("Date: "+timeline.get(i));
-        	System.out.println(" What happened: ");
+        	System.out.println(" -What happened: "+meanings.get(i));
         }
       
     }
