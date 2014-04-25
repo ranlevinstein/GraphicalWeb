@@ -7,7 +7,7 @@ public class main {
 		
 		List<String> timeline  = new LinkedList<>();
 		List<String> meanings = new LinkedList<>();
-        String input = "As of May 2013, Apple maintains 408 retail stores. Bla Bla Bla";
+        String input = "As of May 2013, Apple maintains 408 retail stores. Bla Bla Bla October 2015 has fall.";
         
         input = input.replace(".", " .");
         input = input.replace(",", " ,");
