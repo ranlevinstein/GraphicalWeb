@@ -7,6 +7,9 @@ import java.util.regex.*;
 public class Main1 {
     static List<String> matchingResults = new LinkedList<>();
     static List<String> fullWords  = new LinkedList<>();
+    static List<String> step2Words  = new LinkedList<>();
+    static List<String> finalDates = new LinkedList<>();
+    static int arrofDates [];
     static List<String> meanings = new LinkedList<>();
     public static void main(String[]args)
     {
@@ -23,13 +26,28 @@ public class Main1 {
         regexFinder("((In )|(in )|(On )|(on )|(As of )|(as of ))?(((In )|(in ))|(January|February|March|April|May|June|July|August|September|October|November|December)) ?([0-9]{1,2})?,? ?[0-9]{1,4}",input);  
         System.out.println("Partial:");
         for(int i=0;i<fullWords.size();i++)
-        	regexDates("(January|February|March|April|May|June|July|August|September|October|November|December) [0-9]{1,4}",fullWords.get(i));
+        	regexDates(2,"(((January|February|March|April|May|June|July|August|September|October|November|December) ?([0-9]{1,2})?,? ?[0-9]{1,4})|[0-9]{3,4})",fullWords.get(i));
+        System.out.println("Fully partial:");
+        for(int i=0;i<step2Words.size();i++)
+        {
+        	regexDates(3,"[0-9]{3,4}",step2Words.get(i));
+        }
+        
+        
+        arrofDates= new int[finalDates.size()];
+        
+        
+        for(int i=0;i<arrofDates.length;i++)
+        {
+        	arrofDates[i] = Integer.parseInt(finalDates.get(i));
+        }
+        
     /*    for(int i = 0; i < timeline.size(); i++){
             System.out.println(timeline.get(i));
             System.out.println(meanings.get(i));
         }*/
     }
-    public static void regexDates(String regex, String checker)
+    public static void regexDates(int step,String regex, String checker)
     {
     	  Pattern checkRegex = Pattern.compile(regex);
     	    Matcher matchRegex = checkRegex.matcher(checker);
@@ -39,8 +57,14 @@ public class Main1 {
     	        if(matchRegex.group().length() != 0)
     	        {
     	            System.out.println(matchRegex.group().trim());
-    	        	
-    	        	
+    	        	if(step==2)
+    	        	{
+    	        		step2Words.add(matchRegex.group().trim());
+    	        	}
+    	        	else if(step==3)
+    	        	{
+    	        		finalDates.add(matchRegex.group().trim());
+    	        	}
     	        }
     	   
     	        //System.out.println(findSentence(checker, matchRegex.start(), matchRegex.end()));
