@@ -6,10 +6,13 @@ import java.util.regex.*;
 
 public class Main1 {
     static List<String> matchingResults = new LinkedList<>();
+    
     static List<String> fullWords  = new LinkedList<>();
     static List<String> step2Words  = new LinkedList<>();
     static List<String> finalDates = new LinkedList<>();
     static int arrofDates [];
+    static int sortedDates[];
+    
     static List<String> meanings = new LinkedList<>();
     public static void main(String[]args)
     {
@@ -35,13 +38,17 @@ public class Main1 {
         
         
         arrofDates= new int[finalDates.size()];
-        
+        sortedDates = new int[finalDates.size()];
         
         for(int i=0;i<arrofDates.length;i++)
         {
         	arrofDates[i] = Integer.parseInt(finalDates.get(i));
         }
+        sortedDates = sort(arrofDates);
         
+        System.out.println("Sorted by date: ");
+        for(int i = 0; i<sortedDates.length;i++)
+        	System.out.println(sortedDates[i]);
     /*    for(int i = 0; i < timeline.size(); i++){
             System.out.println(timeline.get(i));
             System.out.println(meanings.get(i));
@@ -100,4 +107,21 @@ public class Main1 {
      int sentenceEnd = i;
      return checker.substring(sentenceStart+1, sentenceEnd).replace(checker.substring(start, end+1), "");
  }
-}
+
+
+
+public static int[] sort(int[] data){
+	  int len = data.length;
+	  int key = 0;
+	  int i = 0;
+	  for(int j = 1;j<len;j++){
+	    key = data[j];
+	    i = j-1;
+	    while(i>=0 && data[i]>key){
+	      data[i+1] = data[i];
+	      i = i-1;
+	      data[i+1]=key;
+	    }
+	  }
+	  return data;
+	 }}
