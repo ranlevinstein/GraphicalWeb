@@ -5,15 +5,17 @@ import java.util.List;
 import java.util.regex.*;
 
 public class Main1 {
+	
+	
     static List<String> matchingResults = new LinkedList<>();
-    
     static List<String> fullWords  = new LinkedList<>();
+    
     static List<String> step2Words  = new LinkedList<>();
     static List<String> finalDates = new LinkedList<>();
     static int arrofDates [];
     static int sortedDates[];
-    
     static List<String> meanings = new LinkedList<>();
+    
     public static void main(String[]args)
     {
  
@@ -28,8 +30,12 @@ public class Main1 {
         System.out.println("Full Dates:");
         regexFinder("((In )|(in )|(On )|(on )|(As of )|(as of ))?(((In )|(in ))|(January|February|March|April|May|June|July|August|September|October|November|December)) ?([0-9]{1,2})?,? ?[0-9]{1,4}",input);  
         System.out.println("Partial:");
+        
+        
         for(int i=0;i<fullWords.size();i++)
         	regexDates(2,"(((January|February|March|April|May|June|July|August|September|October|November|December) ?([0-9]{1,2})?,? ?[0-9]{1,4})|[0-9]{3,4})",fullWords.get(i));
+        
+        
         System.out.println("Fully partial:");
         for(int i=0;i<step2Words.size();i++)
         {
@@ -48,7 +54,11 @@ public class Main1 {
         
         System.out.println("Sorted by date: ");
         for(int i = 0; i<sortedDates.length;i++)
-        	System.out.println(sortedDates[i]);
+        {
+        	
+        	System.out.println("Date: "+sortedDates[i]);
+        	System.out.println("What happened: "+meanings.get(i));
+        }
     /*    for(int i = 0; i < timeline.size(); i++){
             System.out.println(timeline.get(i));
             System.out.println(meanings.get(i));
@@ -94,6 +104,7 @@ public class Main1 {
         }
    
         System.out.println(findSentence(checker, matchRegex.start(), matchRegex.end()));
+        meanings.add(findSentence(checker, matchRegex.start(), matchRegex.end()));
     }
   
  }
