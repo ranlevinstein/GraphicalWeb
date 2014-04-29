@@ -15,7 +15,6 @@ public class Main1 {
     static int arrofDates [];
     static int sortedDates[];
     static List<String> meanings = new LinkedList<>();
-    static int arrofRefs []; // Reference between sortedDates and unsortedDates to connect between sorted and meanings.
     
     public static void main(String[]args)
     {
@@ -23,7 +22,7 @@ public class Main1 {
         //April 1, 1976
         // April-1-,-1976
         //January|February|March|April|May|June|July|August|September|October|November|December 
-        String input = "Apple is the world's second-largest information technology company by revenue after Samsung Electronics, and the world's third-largest mobile phone maker after Samsung and Nokia.[6] Fortune magazine named Apple the most admired company in the United States in 2008, and in the world from 2008 to 2012.[7][8][9][10][11] On September 30, 2013, Apple surpassed Coca-Cola to become the world's most valuable brand in the Omnicom Group's Best Global Brands report.[12] However, the company has received criticism for its contractors' labor practices, and for Apple's own environmental and business practices. As of May 2013, Apple maintains 408 retail stores in fourteen countries[13][14] as well as the online Apple Store and iTunes Store,[15] the latter of which is the world's largest music retailer.[16] Apple is the largest publicly traded corporation in the world by market capitalization, with an estimated market capitalization of $446 billion by January, 2014.[17] As of September 29, 2012, the company had 72,800 permanent full-time employees and 3,300 temporary full-time employees worldwide. Its worldwide annual revenue in 2013 totalled $170 billion.[18] As of Q1 2014, Apple's five-year growth average is 39% for top line growth and 45% for bottom line growth. In May 2013, Apple entered the top ten of the Fortune 500 list of companies for the first time, rising 11 places above its 2012 ranking to take the sixth position.[19]";
+        String input = "In 1987 Gates was listed as a billionaire in Forbes magazine's 400 Richest People in America issue, just days before his 32nd birthday. As the world's youngest self-made billionaire, he was worth $1.25 billion, over $900 million more than he'd been worth the year before, when he'd debuted on the list.[104] Time magazine named Gates one of the 100 people who most influenced the 20th century, as well as one of the 100 most influential people of 2004, 2005, and 2006. Time also collectively named Gates, his wife Melinda and U2's lead singer Bono as the 2005 Persons of the Year for their humanitarian efforts.[105] In 2006, he was voted eighth in the list of Heroes of our time.[106] Gates was listed in the Sunday Times power list in 1999, named CEO of the year by Chief Executive Officers magazine in 1994, ranked number one in the Top 50 Cyber Elite by Time in 1998, ranked number two in the Upside Elite 100 in 1999 and was included in The Guardian as one of the Top 100 influential people in media in 2001.[107] According to Forbes, Gates was ranked as the fourth most powerful person in the world in 2012,[108] up from fifth in 2011.[109] In 1994, he was honored as the twentieth Distinguished Fellow of the British Computer Society. Gates has received honorary doctorates from Nyenrode Business Universiteit, Breukelen, The Netherlands, in 2000;[110] the Royal Institute of Technology, Stockholm, Sweden, in 2002;[111] Waseda University, Tokyo, Japan, in 2005; Tsinghua University, Beijing, China, in April 2007;[112] Harvard University in June 2007;[113] the Karolinska Institutet, Stockholm, in January 2008,[114] and Cambridge University in June 2009.[115] He was also made an honorary trustee of Peking University in 2007.[116] Gates was made an honorary Knight Commander of the Order of the British Empire (KBE) by Queen Elizabeth II in 2005.[117] He and his wife were awarded the Order of the Aztec Eagle in November 2006 for their philanthropic work around the world in the areas of health and education, particularly in Mexico, and specifically in the program Un país de lectores.[118] Gates received the 2010 Bower Award for Business Leadership from The Franklin Institute for his achievements at Microsoft and his philanthropic work.[119] Also in 2010 he was honored with the Silver Buffalo Award by the Boy Scouts of America, its highest award for adults, for his service to youth.[120] Entomologists named Bill Gates' flower fly, Eristalis gatesi, in his honor in 1997.[121]";
         String[] words = input.split(" ");
         String[] months = {"January","Febuary","March","April","May","June","July","August","September","October","November","December"};
         //System.out.println(input);
@@ -46,8 +45,6 @@ public class Main1 {
         
         arrofDates= new int[finalDates.size()];
         sortedDates = new int[finalDates.size()];
-        arrofRefs = new int[finalDates.size()];
-        
         
         for(int i=0;i<arrofDates.length;i++)
         {
@@ -55,28 +52,12 @@ public class Main1 {
         }
         sortedDates = sort(arrofDates);
         
-        
-        for(int i=0;i<sortedDates.length;i++)
-        {
-        	//Search in unsorted array where is the sorted information.
-        	for(int j=0;j<sortedDates.length;j++)
-        	{
-        		//arrofRefs[i] = ;
-        		if(arrofDates[j]==sortedDates[i])
-        		{
-        			arrofRefs[i]=j;
-        			break;
-        		}
-        	}
-        }
-        
-        
         System.out.println("Sorted by date: ");
         for(int i = 0; i<sortedDates.length;i++)
         {
         	
         	System.out.println("Date: "+sortedDates[i]);
-        	System.out.println("What happened: "+meanings.get(arrofRefs[i]));
+        	System.out.println("What happened: "+meanings.get(i));
         }
     /*    for(int i = 0; i < timeline.size(); i++){
             System.out.println(timeline.get(i));
@@ -131,9 +112,9 @@ public class Main1 {
  
  public static String findSentence(String checker, int start, int end){
      int i;
-     for(i = start;  i == 0 || checker.charAt(i) != '.'; i--){}
+     for(i = start;  i > -1 && checker.charAt(i) != '.'; i--){}
      int sentenceStart = i;
-     for(i = end; i == checker.length()-1 || checker.charAt(i) != '.'; i++){}
+     for(i = end; i < checker.length() && checker.charAt(i) != '.'; i++){}
      int sentenceEnd = i;
      return checker.substring(sentenceStart+1, sentenceEnd).replace(checker.substring(start, end+1), "");
  }
