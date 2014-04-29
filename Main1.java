@@ -15,6 +15,7 @@ public class Main1 {
     static int arrofDates [];
     static int sortedDates[];
     static List<String> meanings = new LinkedList<>();
+    static int arrofRefs []; // Reference between sortedDates and unsortedDates to connect between sorted and meanings.
     
     public static void main(String[]args)
     {
@@ -45,6 +46,8 @@ public class Main1 {
         
         arrofDates= new int[finalDates.size()];
         sortedDates = new int[finalDates.size()];
+        arrofRefs = new int[finalDates.size()];
+        
         
         for(int i=0;i<arrofDates.length;i++)
         {
@@ -52,12 +55,28 @@ public class Main1 {
         }
         sortedDates = sort(arrofDates);
         
+        
+        for(int i=0;i<sortedDates.length;i++)
+        {
+        	//Search in unsorted array where is the sorted information.
+        	for(int j=0;j<sortedDates.length;j++)
+        	{
+        		//arrofRefs[i] = ;
+        		if(arrofDates[j]==sortedDates[i])
+        		{
+        			arrofRefs[i]=j;
+        			break;
+        		}
+        	}
+        }
+        
+        
         System.out.println("Sorted by date: ");
         for(int i = 0; i<sortedDates.length;i++)
         {
         	
         	System.out.println("Date: "+sortedDates[i]);
-        	System.out.println("What happened: "+meanings.get(i));
+        	System.out.println("What happened: "+meanings.get(arrofRefs[i]));
         }
     /*    for(int i = 0; i < timeline.size(); i++){
             System.out.println(timeline.get(i));
