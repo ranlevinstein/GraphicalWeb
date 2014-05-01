@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.*;
 
-public class Main {
+public class Main1 {
     
     
     static List<String> matchingResults = new LinkedList<>();
@@ -69,7 +69,7 @@ public class Main {
                 meanings.set(i, newMeaning);
             }*/
             if (!(meanings.get(i).equals(meanings.get(i-1)) || meanings.get(i).length() > 150)){
-                    newMeanings.add(removeDates(meanings.get(i), "((In )|(in )|(On )|(on )|(As of )|(as of ))?(((In )|(in ))|(January|February|March|April|May|June|July|August|September|October|November|December)) ?([0-9]{1,2})?,? ?[0-9]{1,4}"));
+                    newMeanings.add(removeDates(meanings.get(i), "((In )|(in )|(On )|(on )|(As of )|(as of )|(By ))?(((In )|(in ))|(January|February|March|April|May|June|July|August|September|October|November|December)) ?([0-9]{1,2})?,? ?[0-9]{1,4}"));
                     newDates.add(finalDates.get(i));
                     //break;
             }
