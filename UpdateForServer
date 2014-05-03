@@ -1,0 +1,37 @@
+////////from here
+    	String wikiT = "Apple Inc.";
+    	wikiT = wikiT.replace(' ', '_');
+     	String strURL = "http://en.wikipedia.org/w/api.php?format=json&action=query&titles="+wikiT+"&prop=extracts&rvprop=content";
+    	//static String strURL = "http://www.amazon.com/";
+    	 //public static void main(String[] args) throws IOException {
+    		 
+   	 
+		 URL url = new URL(strURL);
+		 BufferedReader reader = null;
+
+		 try {
+		     reader = new BufferedReader(new InputStreamReader(url.openStream(), "UTF-8"));
+
+		     for (String line; (line = reader.readLine()) != null;) {
+		         System.out.println(line);
+		         input=line;
+		     }
+		 } finally {
+		     if (reader != null) try { reader.close(); } catch (IOException ignore) {}
+		 }
+		
+		// char c = 3;
+		 
+		 input=input.replaceAll("<.+?>","");
+		 
+		 for(int c = 1; c < input.length(); c++){
+				if(input.charAt(c) == 'n' && input.charAt(c-1) == '\\'){
+					//System.out.println("shazam");
+					char[] myNameChars = input.toCharArray();
+					myNameChars[c] = ' ';
+					myNameChars[c-1] = ' ';
+					input = String.valueOf(myNameChars);
+			}
+		 }
+		 //////////////to here
+		 
